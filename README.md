@@ -1,6 +1,6 @@
 ___
-# Урок №1.
-**Homework. System kernel update.**  
+# Урок №1.Обновление ядра системы.
+**Homework1. System kernel update.**  
 Исх. данные.-предварительно установленное и настроенное следующее ПО:  
 Хостовая ОС                                             - Window 10 Home  
 Установлено ПО                                          - Oracle VirtualBox v 7.2.4  
@@ -21,7 +21,7 @@ https://kernel.ubuntu.com/mainline
 https://kernel.ubuntu.com/mainline/v6.17.7/  
 Качаем пакеты на виртуальную машину:  
 ```
-user@vmubuntu:~$ mkdir kernel && cd kernel  // создаем каталог kernel в домашней директории и переходим в каталог -kernel
+user@vmubuntu:~$ mkdir kernel && cd kernel  // создаем каталог kernel в домашней директории и переходим в каталог kernel и затем копируем файлы в этот каталог
 user@vmubuntu:~$ wget https://kernel.ubuntu.com/mainline/v6.17.7/amd64/linux-headers-6.17.7-061707-generic_6.17.7-061707.202511021342_amd64.deb
 user@vmubuntu:~$ wget https://kernel.ubuntu.com/mainline/v6.17.7/amd64/linux-headers-6.17.7-061707_6.17.7-061707.202511021342_all.deb
 user@vmubuntu:~$ wget https://kernel.ubuntu.com/mainline/v6.17.7/amd64/linux-image-unsigned-6.17.7-061707-generic_6.17.7-061707.202511021342_amd64.deb
@@ -58,17 +58,17 @@ lrwxrwxrwx  1 root root       29 ноя  8 15:27 vmlinuz -> vmlinuz-6.17.7-06170
 -rw-------  1 root root 15006088 окт 10 23:41 vmlinuz-6.8.0-87-generic
 lrwxrwxrwx  1 root root       24 ноя  8 15:27 vmlinuz.old -> vmlinuz-6.8.0-87-generic
 ```
-Далее обновиляем конфигурацию загрузчика:  
-`user@vmubuntu:~$ sudo update-grub`
-Выбраем загрузку нового ядра по-умолчанию:  
-`user@vmubuntu:~$ sudo grub-set-default 0`
-Далее перезагружаем нашу виртуальную машину с помощью команды
-`sudo reboot`
-После перезагрузки снова проверяем версию ядра:
+Обновляем конфигурацию загрузчика:  
+`user@vmubuntu:~$ sudo update-grub`  
+Выбраем загрузку нового ядра по умолчанию:    
+`user@vmubuntu:~$ sudo grub-set-default 0`  
+Перезагружаем нашу виртуальную машину с помощью команды  
+`sudo reboot`  
+После перезагрузки снова проверяем версию ядра:  
 ```
-user@vmubuntu:~$  uname -r 
-6.17.7-061707-generic
-```
+user@vmubuntu:~$  uname -r   
+6.17.7-061707-generic  
+```  
 На этом обновление ядра закончено.
 
 
